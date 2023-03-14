@@ -12,7 +12,7 @@ We were required to demonstrate the following in an appropiate manner w.r.t. our
 <h5>:bellhop_bell: &emsp;Safe CRUD operations
 <h5>:bellhop_bell: &emsp;Constraints (Unique, Foreign, Primary)
 <h5>:bellhop_bell: &emsp;Views
-<h5>:bellhop_bell: &emsp;STRING, DATE, NUMBER, GROUP BY / ROLLUP functions
+<h5>:bellhop_bell: &emsp;Functions (STRING, DATE, NUMBER, GROUP BY / ROLLUP)
 <h5>:bellhop_bell: &emsp;Sequences
 <h5>:bellhop_bell: &emsp;Savepoints, Commits, Rollback
 <h5>:bellhop_bell: &emsp;Join (inner, outer)
