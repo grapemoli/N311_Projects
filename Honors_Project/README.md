@@ -15,7 +15,6 @@ Essentially, the relationship between the two tables will be:
 Overlapping field names that have different requirements are bolded.
 
 #### SOURCE
-<br>
 Created and inserted with 2000 sample rows by PL/SQL.
 - Customer ID (Auto Increment, Primary Key)
 - First Name
@@ -40,7 +39,6 @@ Created and inserted with 2000 sample rows by PL/SQL.
 
 
 #### DESTINATION
-<br>
 Created empty, but the merged data must follow the following formats:
 - Customer ID (Auto increment, primary key)
 - First Name
