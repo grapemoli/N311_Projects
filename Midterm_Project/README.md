@@ -8,8 +8,8 @@ This database aims to support a small hotel business in its transaction, especia
 
 ## Topics Demonstrated
 We were required to demonstrate the following in an appropiate manner w.r.t. our database:
-&emsp; <h5>:bellhop_bell: Normalization
-&emsp; <h5>:bellhop_bell: Safe CRUD operations
+<h5>:bellhop_bell: &emsp;Normalization
+<h5>:bellhop_bell: Safe CRUD operations
 <h5>:bellhop_bell: Constraints (Unique, Foreign, Primary)
 <h5>:bellhop_bell: Views
 <h5>:bellhop_bell: STRING, DATE, NUMBER, GROUP BY / ROLLUP functions
