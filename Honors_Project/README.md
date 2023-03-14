@@ -19,7 +19,7 @@ Differences between the two tables are bolded.
 Created and inserted with 2000 sample rows by PL/SQL.
 - Customer ID (Auto Increment, Primary Key)
 - First Name
-- **Middle Name and Last Name (the values will be middle name followed by a comma followed by last name such as “Michael, Smith”) **
+- **Middle Name and Last Name (the values will be middle name followed by a comma followed by last name such as “Michael, Smith”)**
   - Names don’t have to be unique but cannot all be the same. They don’t have to look real. A name like “asdfsdaf” is fine. Leave some middle names empty. 
 - **Date of Birth (in format YYYY-MM-DD)**
   - Date of birth don’t have to be unique but cannot all be the same and ages must be realistic (such as between 20 and 100),  i.e. you cannot create a customer who was born 200 years ago. 
