@@ -1,5 +1,5 @@
 /*--------------------------
-File Name: Nguyen_Grace.sql
+File Name: midterm_script.sql
 By: Grace Nguyen
 ----------------------------*/
 
