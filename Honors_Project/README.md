@@ -12,7 +12,7 @@ Essentially, the relationship between the two tables will be:
 ![image](https://user-images.githubusercontent.com/105399768/225164514-f1a3ad1f-bd2c-47fb-8d89-569e8b325474.png)
 
 ## Sample Data Requirements (copied from the Professor)
-Differences between the two tables are bolded.
+Overlapping field names that have different requirements are bolded.
 
 **SOURCE**
 <br>
@@ -44,7 +44,7 @@ Created and inserted with 2000 sample rows by PL/SQL.
 Created empty, but the merged data must follow the following formats:
 - Customer ID (Auto increment, primary key)
 - First Name
-- **Middle Name **
+- **Middle Name**
 - Last Name
 - **Date of Birth (in format MM/DD/YYYY)**
 - **Last 4 digits of Social Security Number**
