@@ -23,12 +23,12 @@ Created and inserted with 2000 sample rows by PL/SQL.
   - Names don’t have to be unique but cannot all be the same. They don’t have to look real. A name like “asdfsdaf” is fine. Leave some middle names empty. 
 - **Date of Birth (in format YYYY-MM-DD)**
   - Date of birth don’t have to be unique but cannot all be the same and ages must be realistic (such as between 20 and 100),  i.e. you cannot create a customer who was born 200 years ago. 
-- **Social Security Number (in format xxx-xx-xxxx) **
+- **Social Security Number (in format xxx-xx-xxxx)**
   - Social security number must be unique. It doesn’t have to look like a social security number, as long as the format is correct. E.g. 111-11-1111 is fine. 
 - Address
 - City
   - City names don’t have to look real. A name like “asfsf” is fine, but they cannot all be the same. 
-- **State (in two-character abbreviated format such as IN to stand for Indiana) **
+- **State (in two-character abbreviated format such as IN to stand for Indiana)**
   - State must be one of the real states, and can be randomly selected from the State list. If you need to create a STATE table, feel free to do so. 
 - **Zip Code (in 10-digit format such as 46202-2716)**
   - Zip codes cannot all be the same. 
