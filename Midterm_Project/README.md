@@ -1,4 +1,4 @@
-# 	:hotel: Hotel Database 	:hotel:
+# Hotel Database 	:hotel:
 This database aims to support a small hotel business in its transaction, especially supporting customer transactions and employee interactions.
 
 :exclamation: *Note that the class had not yet covered PL/SQL.*
