@@ -19,20 +19,20 @@ Differences between the two tables are bolded.
 Created and inserted with 2000 sample rows by PL/SQL.
 - Customer ID (Auto Increment, Primary Key)
 - First Name
-**- Middle Name and Last Name (the values will be middle name followed by a comma followed by last name such as “Michael, Smith”) **
+- **Middle Name and Last Name (the values will be middle name followed by a comma followed by last name such as “Michael, Smith”) **
   - Names don’t have to be unique but cannot all be the same. They don’t have to look real. A name like “asdfsdaf” is fine. Leave some middle names empty. 
-**- Date of Birth (in format YYYY-MM-DD)**
+- **Date of Birth (in format YYYY-MM-DD)**
   - Date of birth don’t have to be unique but cannot all be the same and ages must be realistic (such as between 20 and 100),  i.e. you cannot create a customer who was born 200 years ago. 
-**- Social Security Number (in format xxx-xx-xxxx) **
+- **Social Security Number (in format xxx-xx-xxxx) **
   - Social security number must be unique. It doesn’t have to look like a social security number, as long as the format is correct. E.g. 111-11-1111 is fine. 
 - Address
 - City
   - City names don’t have to look real. A name like “asfsf” is fine, but they cannot all be the same. 
-**- State (in two-character abbreviated format such as IN to stand for Indiana) **
+- **State (in two-character abbreviated format such as IN to stand for Indiana) **
   - State must be one of the real states, and can be randomly selected from the State list. If you need to create a STATE table, feel free to do so. 
-**- Zip Code (in 10-digit format such as 46202-2716)**
+- **Zip Code (in 10-digit format such as 46202-2716)**
   - Zip codes cannot all be the same. 
-**- Email (company email, you can decide on the company name, such as xxx@firstCompany.com)**
+- **Email (company email, you can decide on the company name, such as xxx@firstCompany.com)**
   - Email must be unique. 
 - Phone (in format xxx.xxx.xxxx)
   - Phone numbers don’t have to be unique but cannot all be the same. You can make it unique if you like. 
@@ -44,15 +44,15 @@ Created and inserted with 2000 sample rows by PL/SQL.
 Created empty, but the merged data must follow the following formats:
 - Customer ID (Auto increment, primary key)
 - First Name
-**- Middle Name **
+- **Middle Name **
 - Last Name
-**- Date of Birth (in format MM/DD/YYYY)**
-**- Last 4 digits of Social Security Number**
+- **Date of Birth (in format MM/DD/YYYY)**
+- **Last 4 digits of Social Security Number**
 - Address
 - City
-**- State (full state name such as Indiana)**
-**- Zip Code (5-digit code such as 46202)**
-**- Email (new company email, such as xxx@newCompany.com)**
-**- Phone (in format (xxx)xxx-xxxx)**
+- **State (full state name such as Indiana)**
+- **Zip Code (5-digit code such as 46202)**
+- **Email (new company email, such as xxx@newCompany.com)**
+- **Phone (in format (xxx)xxx-xxxx)**
 - Old Company ID (used to store the Customer ID from the old company)
 - UpdateDate (the system date when the row is inserted into the table)
