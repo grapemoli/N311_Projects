@@ -10,3 +10,21 @@ Two tables are created: SOURCE and DESTINATION. SOURCE is the "old" company tabl
 Essentially, the relationship between the two tables will be:
 <br>
 ![image](https://user-images.githubusercontent.com/105399768/225164514-f1a3ad1f-bd2c-47fb-8d89-569e8b325474.png)
+
+## Requirements (copied from the Professor)
+
+_DESTINATION_
+- Customer ID (Auto increment, primary key)
+- First Name
+- Middle Name 
+- Last Name
+- Date of Birth (in format MM/DD/YYYY)
+- Last 4 digits of Social Security Number
+- Address
+- City
+- State (full state name such as Indiana)
+- Zip Code (5-digit code such as 46202)
+- Email (new company email, such as xxx@newCompany.com)
+- Phone (in format (xxx)xxx-xxxx)
+- Old Company ID (used to store the Customer ID from the old company)
+- UpdateDate (the system date when the row is inserted into the table)
