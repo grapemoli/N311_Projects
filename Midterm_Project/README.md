@@ -8,13 +8,13 @@ This database aims to support a small hotel business in its transaction, especia
 
 ## Topics Demonstrated
 We were required to demonstrate the following in an appropiate manner w.r.t. our database:
-- :bellhop_bell: Normalization 
-- :bellhop_bell: CRUD operations
-- :bellhop_bell: Constraints (Unique, Foreign, Primary)
-- :bellhop_bell: Views
-- :bellhop_bell: STRING, DATE, NUMBER, GROUP BY / ROLLUP functions
-- :bellhop_bell: Sequences
-- :bellhop_bell: Savepoints, Commits, Rollback
-- :bellhop_bell: Join (inner, outer)
+:bellhop_bell: Normalization 
+:bellhop_bell: CRUD operations
+:bellhop_bell: Constraints (Unique, Foreign, Primary)
+:bellhop_bell: Views
+:bellhop_bell: STRING, DATE, NUMBER, GROUP BY / ROLLUP functions
+:bellhop_bell: Sequences
+:bellhop_bell: Savepoints, Commits, Rollback
+:bellhop_bell: Join (inner, outer)
 
 
