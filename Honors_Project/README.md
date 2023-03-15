@@ -3,7 +3,7 @@
 ## Description (copied from the Professor's Description)
 Two companies are merged, thus data from two separate databases need to be merged into one database. Both databases have a table that stores basic customer information, but with different fields and settings. You are going to write a piece of program to take data from the source table, process data where necessary to meet the requirements of the destination table, and insert data into the destination table. 
 
-Please note that while color is often not seen in these scripts/code, all scripts/code have been tested and work in the Oracle Online Workshop.
+Please note that while color is often not seen in these scripts/code, all scripts/code have been tested and work in the Oracle Online Environment.
 
 
 ## Entity-Relationship Diagram
