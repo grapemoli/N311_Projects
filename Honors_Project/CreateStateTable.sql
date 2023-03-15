@@ -1,5 +1,5 @@
 /*------------------------
-File Name: CreateStateTable
+File Name: CreateStateTable.sql
 By: Grace Nguyen
 Purpose: Create the STATE table, a 'side' table that will not need to
 be often deleted and reconstructed.
