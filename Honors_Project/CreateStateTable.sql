@@ -5,27 +5,6 @@ Purpose: Create the STATE table, a 'side' table that will not need to
 be often deleted and reconstructed.
 -------------------------*/
 
-
-
-/***************
-* Drop Everything
-****************/
-drop sequence id_STATENAME_sq;
-drop table STATE_NAME;
-
-alter table DESTINATION drop constraint FK_Destination_Source;
-
-drop sequence id_Source_sq;
-drop table SOURCE;
-
-drop sequence id_Destination_sq;
-drop table DESTINATION;
-
-
-
-/***************
-* Create STATE Table
-****************/
 create table STATE_NAME (
     id              int             Primary Key,
     State           varchar(2)      unique,
@@ -36,10 +15,6 @@ create sequence id_STATENAME_sq increment by 1 start with 1;
 
 
 
-/***************
-* Load STATE Table 
-* Note: loads all 50 states.
-****************/
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'IN', 'Indiana');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'MI', 'Michigan');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'WI', 'Wisconsin');
