@@ -13,8 +13,6 @@ create table STATE_NAME (
 
 create sequence id_STATENAME_sq increment by 1 start with 1;
 
-
-
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'IN', 'Indiana');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'MI', 'Michigan');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'WI', 'Wisconsin');
