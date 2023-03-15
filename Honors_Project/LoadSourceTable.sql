@@ -3,6 +3,7 @@ File Name: LoadSourceTable.sql
 By: Grace Nguyen
 -------------------------*/
 
+
 DECLARE
     -- Values to be inserted into the SOURCE table.
     first_name varchar(25);
@@ -18,11 +19,11 @@ DECLARE
     email varchar(25);      -- xx@oldco.com
     phone varchar(12);      -- xx.xxx.xxxx
 
-    -- Indexing variables.
-    i pls_integer;
-    lower_bound int := 2000;
+    -- Looping variables.
+    i int := 0;
+    upper_bound int := 2000;
 BEGIN
-    FOR i IN 1..lower_bound LOOP
+    WHILE i < upper_bound LOOP
         /* Data generation. */
         first_name := dbms_random.string('L', round(dbms_random.value(3, 10)));
         
@@ -57,7 +58,7 @@ BEGIN
         select state into state from STATE_NAME where id = random_state_id;
         
         zipcode := round(dbms_random.value(10000, 99999)) || '-' || round(dbms_random.value(1000, 9999));
-        email := dbms_random.string('L', round(dbms_random.value(3, 10))) || '@newco.com';
+        email := dbms_random.string('L', round(dbms_random.value(1, 14))) || '@oldco.com';
         phone := round(dbms_random.value(100, 999)) || '.' || round(dbms_random.value(100, 999)) || '.' || round(dbms_random.value(1000, 9999));
         
         
@@ -79,13 +80,17 @@ BEGIN
             );  
         EXCEPTION
             when DUP_VAL_ON_INDEX then   
-                lower_bound := lower_bound + 1;
+                upper_bound := upper_bound + 1;
         END;
 
-        /* Reset all nessecary values. */
+        /* Reset and Increment all nessecary values. */
         last_name := '';
+        i := i + 1;
     END LOOP;
 END;
 /
+
+
+
 
 
