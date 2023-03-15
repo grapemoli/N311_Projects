@@ -2,6 +2,7 @@
 File Name: DropeTables.sql
 By: Grace Nguyen
 -------------------------*/
+
 drop sequence id_STATENAME_sq;
 drop table STATE_NAME;
 
