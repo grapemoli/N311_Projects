@@ -1,8 +1,7 @@
 /*------------------------
 File Name: CreateStateTable.sql
 By: Grace Nguyen
-Purpose: Create the STATE table, a 'side' table that will not need to
-be often deleted and reconstructed.
+Purpose: Create the STATE table, a non-important table that will not need to be often deleted and reconstructed.
 -------------------------*/
 
 create table STATE_NAME (
