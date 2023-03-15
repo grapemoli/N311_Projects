@@ -4,6 +4,7 @@ By: Grace Nguyen
 Purpose: Create the main tables that may need to be deleted/reconstructed often.
 -------------------------*/
 
+
 /* SOURCE Table */
 create table SOURCE (
     ID              int             Primary Key,
@@ -22,6 +23,7 @@ create table SOURCE (
 create sequence id_Source_sq increment by 1 start with 1;
 
 
+
 /* DESTINATION Table */
 create table DESTINATION (
     ID              int             Primary Key,
@@ -29,13 +31,13 @@ create table DESTINATION (
     MiddleName      varchar(25),
     LastName        varchar(25),
     BirthDate       varchar(10),                -- MM/DD/YYYY
-    SSN             varchar(4)      unique,     -- xxxx
+    SSN             varchar(4),                 -- xxxx
     Address         varchar(25),    
     City            varchar(25),
     State           varchar(20),                -- Full State Name
     ZipCode         varchar(10),                -- 46023
-    Email           varchar(25),    unique      -- xx@newco.com
-    Phone           varchar(12),                -- (xxx)xxx-xxxx
+    Email           varchar(25)     unique,     -- xx@oldco.com
+    Phone           varchar(13),                -- xxx.xxx.xxxx
     OldCompanyID    int,                        -- Foreign Key!!
     UpdateDate      date,
 
@@ -43,5 +45,4 @@ create table DESTINATION (
 );
 
 create sequence id_Destination_sq increment by 1 start with 1;
-
 
