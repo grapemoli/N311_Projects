@@ -1,5 +1,5 @@
 /*------------------------
-File Name: DropeTables.sql
+File Name: DropTables.sql
 By: Grace Nguyen
 -------------------------*/
 
