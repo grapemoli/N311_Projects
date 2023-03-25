@@ -321,5 +321,5 @@ END;
 ****************/
 select count(*) from SOURCE;
 select count(*) from DESTINATION;
-select * from DESTINATION;
-select * from SOURCE;
+select * from DESTINATION order by OLDCOMPANYID;
+select * from SOURCE order by ID;
