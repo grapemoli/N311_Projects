@@ -228,6 +228,7 @@ END;
 /***************
 * Verify SOURCE Table 
 ****************/
+select * from STATE_NAME;
 select count(distinct ssn) from SOURCE;
 select count(distinct email) from SOURCE;
 select count(*) from SOURCE;
@@ -242,7 +243,6 @@ DECLARE
     -- Values to be inserted into the DESTINATION table.
     first_name varchar(25);
     middle_name varchar(25);
-    middle_name_length int;
     last_name varchar(25);  
     birthdate varchar(10);  -- MM/DD/YYYY
     SSN varchar(4);         -- xxxx
@@ -255,59 +255,65 @@ DECLARE
     old_id int;
     update_date date;
 
-    -- Looping variables.
-    i int;
-    lower_bound int;
-    upper_bound int;
+    -- Cursor.
+    cursor source_cursor IS
+        select * from SOURCE;
+
+    source_val source_cursor%ROWTYPE;
 BEGIN
-    select max(id) into upper_bound from SOURCE;
-    select min(id) into lower_bound from SOURCE;
-
-    FOR i IN lower_bound..upper_bound LOOP
-        /* Data Processing. */
-        select FirstName into first_name from SOURCE where id = i;
-
-        select SUBSTR(LastName, 1, INSTR(LastName, ',') - 1) into middle_name from SOURCE where id = i;
-        select SUBSTR(LastName, INSTR(LastName, ',') + 1) into last_name from SOURCE where id = i;
+    open source_cursor;
+    LOOP
+        /* Data Processing of SOURCE table */
+        fetch source_cursor into source_val;
         
-        select TO_CHAR(TO_DATE(birthdate, 'YYYY-MM-DD'), 'MM/DD/YYYY') into birthdate from SOURCE where id = i;
-        select SUBSTR(SSN, 8, 4) into SSN from SOURCE where id = i;
-        select Address into address from SOURCE where id = i;
-        select City into city from SOURCE where id = i;
-        select StateName into State from STATE_NAME where (select State from SOURCE where id = i) = State;
-        select SUBSTR(Zipcode, 1, 5) into zipcode from SOURCE where id = i;
-        select SUBSTR(Email, 1, INSTR(Email, '@') - 1) || '@newco.com' into email from SOURCE where id = i;
-        select '(' || SUBSTR(Phone, 1, 3) || ')' || SUBSTR(Phone, 5, 3) || '-' || SUBSTR(Phone, 9, 4) into phone from SOURCE where id = i;
-        old_id := i;
-        select sysdate into update_date from dual;
+        exit when source_cursor%NOTFOUND;
+            /* Process on a row-by-row basis */
+            -- First Name, Middle Name, Last Name
+            first_name := source_val.FirstName;
+            middle_name := SUBSTR(source_val.LastName, 1, INSTR(source_val.LastName, ',') - 1);
+            last_name := SUBSTR(source_val.LastName, INSTR(source_val.LastName, ',') + 1);  
+
+            -- Birthdate, SSN
+            birthdate := TO_CHAR(TO_DATE(source_val.Birthdate, 'YYYY-MM-DD'), 'MM/DD/YYYY');
+            SSN := SUBSTR(source_val.SSN, 8, 4);
+
+            -- Address 
+            address := source_val.Address;
+            city := source_val.City;
+            select StateName into State from STATE_NAME where (select State from SOURCE where id = source_val.id);
+            zipcode := SUBSTR(source_val.Zipcode, 1, 5);
+
+            -- Contact Information
+            email := SUBSTR(source_val.Email, 1, INSTR(source_val.Email, '@') - 1) || '@newco.com';
+            old_id := source_val.ID;
+
+            -- Date
+            select sysdate into update_date from DUAL;
         
 
-       /* Insert into DESTINATION */
-       /*
-       insert into DESTINATION(id, firstname, middlename, lastname, birthdate, SSN, address, city, state, zipcode, email, phone, oldcompanyid, updatedate) values(
-            id_Destination_sq.NextVal,
-            first_name,
-            middle_name,
-            last_name,
-            birthdate,
-            SSN, 
-            address,
-            city,
-            state,
-            zipcode,
-            email,
-            phone,
-            old_id,
-            update_date
-        ); 
-        */
-    END LOOP;
+            /* Insert into DESTINATION */
+            insert into DESTINATION(id, firstname, middlename, lastname, birthdate, SSN, address, city, state, zipcode, email, phone, oldcompanyid, updatedate) values(
+                id_Destination_sq.NextVal,
+                first_name,
+                middle_name,
+                last_name,
+                birthdate,
+                SSN, 
+                address,
+                city,
+                state,
+                zipcode,
+                email,
+                phone,
+                old_id,
+                update_date
+            );
+
+        END LOOP;
+    close source_cursor;
 END;
 /
 
-
-
---TO DO: CHANGE THE ABOVE TO USE A CURSOR, OR CREATE A FUNCTION/PROCEDURE SUCH THAT WE CAN USE PARAMETER IN SELECT STATEMENT.
 
 
 /***************
@@ -315,3 +321,4 @@ END;
 ****************/
 select count(*) from SOURCE;
 select count(*) from DESTINATION;
+select * from DESTINATION;
