@@ -4,6 +4,9 @@ By: Grace Nguyen
 -------------------------*/
 
 
+/***************
+* Load SOURCE Table 
+****************/
 DECLARE
     -- Values to be inserted into the SOURCE table.
     first_name varchar(25);
@@ -91,6 +94,83 @@ END;
 /
 
 
+/***************
+* Merge SOURCE to DESTINATION Table
+****************/
+DECLARE
+    -- Values to be inserted into the DESTINATION table.
+    first_name varchar(25);
+    middle_name varchar(25);
+    last_name varchar(25);  
+    birthdate varchar(10);  -- MM/DD/YYYY
+    SSN varchar(4);         -- xxxx
+    city varchar(25);
+    state varchar(25);       -- Full State Name
+    address varchar(25);
+    zipcode varchar(10);    -- 40123
+    email varchar(25);      -- xx@newco.com
+    phone varchar(13);      -- (xxx)xxx-xxxx
+    old_id int;
+    update_date date;
 
+    -- Cursor.
+    cursor source_cursor IS
+        select * from SOURCE;
+
+    source_val source_cursor%ROWTYPE;
+BEGIN
+    open source_cursor;
+    LOOP
+        /* Data Processing of SOURCE table */
+        fetch source_cursor into source_val;
+        
+        exit when source_cursor%NOTFOUND;
+            /* Process on a row-by-row basis */
+            -- First Name, Middle Name, Last Name
+            first_name := source_val.FirstName;
+            middle_name := SUBSTR(source_val.LastName, 1, INSTR(source_val.LastName, ',') - 1);
+            last_name := SUBSTR(source_val.LastName, INSTR(source_val.LastName, ',') + 1);  
+
+            -- Personal Information
+            birthdate := TO_CHAR(TO_DATE(source_val.Birthdate, 'YYYY-MM-DD'), 'MM/DD/YYYY');
+            SSN := SUBSTR(source_val.SSN, 8, 4);
+            old_id := source_val.ID;
+
+            -- Address 
+            address := source_val.Address;
+            city := source_val.City;
+            select StateName into state from STATE_NAME where (select State from SOURCE where id = source_val.id) = State;
+            zipcode := SUBSTR(source_val.Zipcode, 1, 5);
+
+            -- Contact Information
+            email := SUBSTR(source_val.Email, 1, INSTR(source_val.Email, '@') - 1) || '@newco.com';
+            phone := SUBSTR(source_val.Phone, 1, 3) || ')' || SUBSTR(source_val.Phone, 5, 3) || '-' || SUBSTR(source_val.Phone, 9, 4);    
+
+            -- Date
+            select sysdate into update_date from DUAL;
+        
+
+            /* Insert into DESTINATION */
+            insert into DESTINATION(id, firstname, middlename, lastname, birthdate, SSN, address, city, state, zipcode, email, phone, oldcompanyid, updatedate) values(
+                id_Destination_sq.NextVal,
+                first_name,
+                middle_name,
+                last_name,
+                birthdate,
+                SSN, 
+                address,
+                city,
+                state,
+                zipcode,
+                email,
+                phone,
+                old_id,
+                update_date
+            );
+
+        END LOOP;
+    close source_cursor;
+END;
+/
 
 
