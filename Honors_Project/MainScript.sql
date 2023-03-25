@@ -286,7 +286,7 @@ BEGIN
 
             -- Contact Information
             email := SUBSTR(source_val.Email, 1, INSTR(source_val.Email, '@') - 1) || '@newco.com';
-            phone := SUBTR(source_val.Phone, 1, 3) || ')' || SUBSTR(source_val.Phone, 5, 3) || '-' || SUBSTR(source_val.Phone, 9, 4);    
+            phone := SUBSTR(source_val.Phone, 1, 3) || ')' || SUBSTR(source_val.Phone, 5, 3) || '-' || SUBSTR(source_val.Phone, 9, 4);    
 
             -- Date
             select sysdate into update_date from DUAL;
