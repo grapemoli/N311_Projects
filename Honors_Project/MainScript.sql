@@ -273,9 +273,10 @@ BEGIN
             middle_name := SUBSTR(source_val.LastName, 1, INSTR(source_val.LastName, ',') - 1);
             last_name := SUBSTR(source_val.LastName, INSTR(source_val.LastName, ',') + 1);  
 
-            -- Birthdate, SSN
+            -- Personal Information
             birthdate := TO_CHAR(TO_DATE(source_val.Birthdate, 'YYYY-MM-DD'), 'MM/DD/YYYY');
             SSN := SUBSTR(source_val.SSN, 8, 4);
+            old_id := source_val.ID;
 
             -- Address 
             address := source_val.Address;
@@ -285,7 +286,7 @@ BEGIN
 
             -- Contact Information
             email := SUBSTR(source_val.Email, 1, INSTR(source_val.Email, '@') - 1) || '@newco.com';
-            old_id := source_val.ID;
+            phone := SUBTR(source_val.Phone, 1, 3) || ')' || SUBSTR(source_val.Phone, 5, 3) || '-' || SUBSTR(source_val.Phone, 9, 4);    
 
             -- Date
             select sysdate into update_date from DUAL;
