@@ -73,7 +73,7 @@ insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'WY', 'Wyoming');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'ID', 'Idaho');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'WA', 'Washington');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'MT', 'Montana');
-insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'NV', 'Nevada');F
+insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'NV', 'Nevada');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'OK', 'Oklahoma');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'KS', 'Kansas');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'LO', 'Louisiana');
@@ -280,7 +280,7 @@ BEGIN
             -- Address 
             address := source_val.Address;
             city := source_val.City;
-            select StateName into state from STATE_NAME where (select State from SOURCE where id = source_val.id);
+            select StateName into state from STATE_NAME where (select State from SOURCE where id = source_val.id) = State;
             zipcode := SUBSTR(source_val.Zipcode, 1, 5);
 
             -- Contact Information
@@ -322,3 +322,4 @@ END;
 select count(*) from SOURCE;
 select count(*) from DESTINATION;
 select * from DESTINATION;
+select * from SOURCE;
