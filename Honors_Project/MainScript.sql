@@ -280,7 +280,7 @@ BEGIN
             -- Address 
             address := source_val.Address;
             city := source_val.City;
-            select StateName into State from STATE_NAME where (select State from SOURCE where id = source_val.id);
+            select StateName into state from STATE_NAME where (select State from SOURCE where id = source_val.id);
             zipcode := SUBSTR(source_val.Zipcode, 1, 5);
 
             -- Contact Information
