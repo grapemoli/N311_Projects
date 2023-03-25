@@ -49,7 +49,7 @@ insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'WY', 'Wyoming');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'ID', 'Idaho');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'WA', 'Washington');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'MT', 'Montana');
-insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'NV', 'Nevada');F
+insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'NV', 'Nevada');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'OK', 'Oklahoma');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'KS', 'Kansas');
 insert into STATE_NAME values(id_STATENAME_sq.NextVal, 'LO', 'Louisiana');
