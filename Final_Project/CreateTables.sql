@@ -267,50 +267,16 @@ create table TRANSACTION_TOTAL (
 );
 
 
-
-
--- Third Trigger !!
--- Rubric #4) System Exceptions.
--- Rubric #5) Create two triggers to keep track of different activities.
-/* -----
-* Motivation: Need daily count of new customers. 
-* Purpose: Use a statement-level trigger that counts the total new customers, and
-* insert into a new table named CUSTOMER_TOTAL.
-* By: Grace Nguyen
-* Date: April 8, 2023
------ */
-create table CUSTOMER_TOTAL (
-    TotalDate   date        Primary Key,
-    Total       int
+-- 14. UNASSIGNED_ROOM Table
+create table UNASSIGNED_ROOM (
+    RoomID      char(3)         Primary Key,
+    constraint Fk_UnassignedRoom_Room FOREIGN KEY(RoomID) REFERENCES ROOM(RoomID)
 );
 
 
-create or replace trigger CUSTOMER_INS_TOTAL_UPD
-after insert on CUSTOMER
-DECLARE
-    current_total int;
-BEGIN
-    -- Check if row exists in CUSTOMER_TOTAL. This will throw an error (@exception no_data_found) if not.
-    -- Rubric #4) System exception: no_data_found.
-    select Total into current_total from CUSTOMER_TOTAL where TO_CHAR(TotalDate, 'MM-DD-YYYY') = TO_CHAR(sysdate, 'MM-DD-YYYY');
-
-    update CUSTOMER_TOTAL set Total = (current_total + 1) where TO_CHAR(TotalDate, 'MM-DD-YYYY') = TO_CHAR(sysdate, 'MM-DD-YYYY');
-EXCEPTION
-    when no_data_found then
-        -- Row DNE. Insert row into CUSTOMER_TOTAL.
-        insert into CUSTOMER_TOTAL(TotalDate, Total) values(sysdate, 1);
-    when others then
-        DBMS_OUTPUT.PUT_LINE('Something went wrong.');
-END;
-/
-
--- Testing the trigger.
-insert into CUSTOMER(CustomerID, FirstName, LastName, LocationID) values (CustomerID.NextVal, 'Grace', 'A', 1);
-insert into CUSTOMER(CustomerID, FirstName, LastName, LocationID) values (CustomerID.NextVal, 'Grace', 'B', 1);
-insert into CUSTOMER(CustomerID, FirstName, LastName, LocationID) values (CustomerID.NextVal, 'Grace', 'C', 1);
-select * from CUSTOMER order by CustomerID desc;
-select * from CUSTOMER_TOTAL;
-
-
-
-
+-- 15. NEW_ROOM Table - Tracking Table for Trigger
+create table NEW_ROOM (
+    RoomID      char(3)         Primary Key,
+    OpenDate    date,
+    constraint Fk_NewRoom_Room FOREIGN Key(RoomID) REFERENCES Room(RoomID)
+);
