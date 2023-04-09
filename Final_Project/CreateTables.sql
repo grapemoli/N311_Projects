@@ -280,3 +280,10 @@ create table NEW_ROOM (
     OpenDate    date,
     constraint Fk_NewRoom_Room FOREIGN Key(RoomID) REFERENCES Room(RoomID)
 );
+
+
+-- 16. CUSOMTER_TOTAL Table - Audit table for Trigger
+create table CUSTOMER_TOTAL (
+    TotalDate   date        Primary Key,
+    Total       int
+);
