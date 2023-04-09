@@ -1,3 +1,9 @@
+/*--------------------------
+File Name: CreateTriggers.sql
+By: Grace Nguyen
+Date: April 9, 2023
+----------------------------*/
+
 /* -----
 * Motivation: Everytime a new room is added, that room will also need to be added to different tables.
 * Purpose: Every row insertted into ROOM, ROOM_UPKEEP and UNASSIGNED_ROOM will be updated. Also,
