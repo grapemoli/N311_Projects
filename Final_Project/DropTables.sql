@@ -1,5 +1,5 @@
 /*--------------------------
-File Name: DropTables.sql
+File Name: Drop.sql
 By: Grace Nguyen
 Date: April 9, 2023
 ----------------------------*/
