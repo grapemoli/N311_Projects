@@ -1,5 +1,5 @@
 /*--------------------------
-File Name: Nguyen_Grace_Script.sql
+File Name: Main.sql
 By: Grace Nguyen
 Date: April 4, 2023
 ----------------------------*/
