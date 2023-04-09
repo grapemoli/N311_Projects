@@ -32,6 +32,7 @@ alter table MEMBER drop constraint FK_Member_Customer
 alter table MEMBER drop constraint PK_Member;
 drop sequence MemberID;
 drop table MEMBER;
+drop view vw_memer_total;
 
 -- 11. ROOM_UPKEEP Table
 alter table ROOM_UPKEEP drop constraint FK_RoomUpkeep_Employee;
