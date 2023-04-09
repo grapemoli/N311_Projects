@@ -5,17 +5,6 @@
 * By: Grace Nguyen
 * Date: April 8, 2023
 ----- */
-create table UNASSIGNED_ROOM (
-    RoomID      char(3)         Primary Key,
-    constraint Fk_UnassignedRoom_Room FOREIGN KEY(RoomID) REFERENCES ROOM(RoomID)
-);
-
-create table NEW_ROOM (
-    RoomID      char(3)         Primary Key,
-    OpenDate    date,
-    constraint Fk_NewRoom_Room FOREIGN Key(RoomID) REFERENCES Room(RoomID)
-);
-
 create or replace trigger ROOM_BEF_INS_ROW
 after insert on ROOM
 for each row   
