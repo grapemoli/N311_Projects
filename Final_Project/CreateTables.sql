@@ -5,7 +5,7 @@ Date: April 9, 2023
 ----------------------------*/
 
 /************************
-* CREATE ALL TABLES, CONSTRAINTS, INDICES
+* CREATE MAIN TABLES, CONSTRAINTS, INDICES
 *************************/
 -- 1. STATE Table
 create table STATE (
@@ -274,6 +274,10 @@ create table UNASSIGNED_ROOM (
 );
 
 
+
+/************************
+* CREATE AUDIT/TRIGGER TABLES, CONSTRAINTS, INDICES
+*************************/
 -- 15. NEW_ROOM Table - Tracking Table for Trigger
 create table NEW_ROOM (
     RoomID      char(3)         Primary Key,
